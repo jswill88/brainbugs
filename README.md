@@ -1,5 +1,5 @@
 # Midterm Project
-### Team
+### Team B
 Christopher Hamersly  
 Daisy Johnson  
 Tia Low  
