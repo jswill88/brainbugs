@@ -15,28 +15,26 @@ This is a command line multi-player trivia game. Players will have the opportuni
 
 ## Env Samples
 - PORT=
-- HOST=
-<br>
+- HOST= <br>
 (etc)
 
 ## Tech
 - dotenv
 - express
 - socket.io
-- socket.io-client 
-<br>
+- socket.io-client <br>
 (etc)
 
 ## Wireframes
-![Start Game Wireframe](startgamewb.png)
-![Game Play Wireframe](gameplaywb.png)
-![End Game Wireframe](endgamewb.png)
+![Start Game Wireframe](img/startgamewb.png)
+![Game Play Wireframe](img/gameplaywb.png)
+![End Game Wireframe](img/endgamewb.png)
 
 ## Domain Model
-![Domain Model](domainModel.png)
+![Domain Model](img/domainModel.png)
 
 ## Entity Relationship Diagram
-![Entity Relationship Diagram](ERD.png)
+![Entity Relationship Diagram](img/ERD.png)
 
 ## Project Board
 [Trello](https://trello.com/b/bAkFn6ZU/project-board) 
