@@ -16,13 +16,15 @@ This is a command line multi-player trivia game. Players will have the opportuni
 ## Env Samples
 - PORT=
 - HOST=
+<br>
 (etc)
 
 ## Tech
 - dotenv
 - express
 - socket.io
-- socket.io-client
+- socket.io-client 
+<br>
 (etc)
 
 ## Wireframes
@@ -37,7 +39,8 @@ This is a command line multi-player trivia game. Players will have the opportuni
 ![Entity Relationship Diagram](ERD.png)
 
 ## Project Board
-[Trello](https://trello.com/b/bAkFn6ZU/project-board)
+[Trello](https://trello.com/b/bAkFn6ZU/project-board) 
+<br>
 *User Stories included*
 
 
