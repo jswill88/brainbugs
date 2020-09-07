@@ -1,0 +1,30 @@
+{
+  "name": "midterm-project",
+  "version": "1.0.0",
+  "description": "## Authors - Chris Hamersly: [GitHub](https://github.com/christopherhamersly) - Daisy Johnson: [GitHub](https://github.com/daisyjanejohnson)  - Tia Low: [GitHub](https://github.com/TiaLow) - Joshua Williams: [GitHub](https://github.com/jswill88)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint **/*.js",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/this-dot-group/midterm-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/this-dot-group/midterm-project/issues"
+  },
+  "homepage": "https://github.com/this-dot-group/midterm-project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.3"
+  }
+}
