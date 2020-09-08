@@ -34,11 +34,17 @@ io.on('connection', (socket) => {
   // console.log('socket', socket);
   socket.on('join', async room => {
     console.log('joined', room);
-    let results = await thisIsTheSchema.find({});
+    let results = await thisIsTheSchema.find().distinct('topic');
     io.emit('database', results);
     socket.join(room);
   });
+  // Listening for user to enter username and emitting it with an event
+  socket.on('usernamePopulate', (username) => {
+    io.emit('usernamePopulate',username);
+  });
+
 });
+
 
 module.exports = io;
 
