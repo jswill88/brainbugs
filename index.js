@@ -28,10 +28,14 @@ mongoose.connect(MONGODB_URI, mongooseOptions);
 const io = socketIO(socketServer);
 // server.start(process.env.PORT);
 
+const thisIsTheSchema = require('./lib/database/schema/question-schema');
+
 io.on('connection', (socket) => {
   // console.log('socket', socket);
-  socket.on('join', room => {
+  socket.on('join', async room => {
     console.log('joined', room);
+    let results = await thisIsTheSchema.find({});
+    io.emit('database', results);
     socket.join(room);
   });
 });

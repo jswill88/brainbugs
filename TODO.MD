@@ -46,4 +46,6 @@ function timerCount() {
 
 
 <!-- POST NEW QUESTIONS
-http POST :3000/question topic="new topic" question="new question" answers:='[{"answer":"three", "correct":true}, {"answer":"two"},{"answer":"four"}]' -->
+http POST :3000/question topic="baseball" question="Which of the following players was NOT a member of the Yankees’ 'murderer’s row' in 1927?" answers:='[{"answer":"Babe Ruth"},{"answer":"Lou Gehrig"},{"answer":"Mickey Mantle", "correct":true},{"anwswer":"Earle Combs"}]' -->
+
+http POST :3000/question topic="baseball" question="Which of the following players was NOT a member of the Yankees' \"murderers row\" in 1927?" answers:='[{"answer":"Babe Ruth"},{"answer":"Lou Gehrig"},{"answer":"Mickey Mantle", "correct":true},{"answer":"Earle Combs"}]'
