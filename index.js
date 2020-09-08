@@ -39,8 +39,9 @@ io.on('connection', (socket) => {
     socket.join(room);
   });
   // Listening for user to enter username and emitting it with an event
-  socket.on('usernamePopulate', (username) => {
+  socket.on('usernamePopulate', async (username) => {
     io.emit('usernamePopulate',username);
+
   });
 
 });
