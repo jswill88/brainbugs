@@ -19,7 +19,7 @@ describe('Sunny Day - 200 Handling', () => {
 
 describe('404 Error Handling', () => {
 
-  it.skip('should respond with a 404 on an invalid route', () => {
+  it('should respond with a 404 on an invalid route', () => {
     return mockRequest
       .post('/invalid')
       .then( results=> {
@@ -28,7 +28,7 @@ describe('404 Error Handling', () => {
     // have to take out the catch because it will cause the test to pass- false positive- this function will catch the error befor Jest seeing that an error exists    .catch(console.error);
   });
 
-  it.skip('should response with 404 on invalid route', async () => {
+  it('should response with 404 on invalid route', async () => {
 
     //different way of writing the above test
     const results = await mockRequest.post('/invalid');
@@ -36,7 +36,7 @@ describe('404 Error Handling', () => {
 
   });
 
-  it.skip('should respond with a 404 on an invalid method', () => {
+  it('should respond with a 404 on an invalid method', () => {
     return mockRequest
       .post('/')
       .then( results=> {
@@ -44,7 +44,7 @@ describe('404 Error Handling', () => {
       });
   });
 
-  it.skip('should respond with a 404 on an invalid method', async () => {
+  it('should respond with a 404 on an invalid method', async () => {
     
     const results = await mockRequest.get('/question');
     expect(results.status).toBe(404);
