@@ -35,6 +35,7 @@ This is a command line multi-player trivia game. Players will have the opportuni
 
 ## Entity Relationship Diagram
 ![Entity Relationship Diagram](img/ERD.png)
+![Entity Relationship Diagram](img/ERD-2.png)
 
 ## Project Board
 [Trello](https://trello.com/b/bAkFn6ZU/project-board) 

@@ -24,7 +24,10 @@
   },
   "homepage": "https://github.com/this-dot-group/midterm-project#readme",
   "dependencies": {
+    "blessed": "^0.1.81",
     "express": "^4.17.1",
-    "mongoose": "^5.10.3"
+    "mongoose": "^5.10.3",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0"
   }
 }
