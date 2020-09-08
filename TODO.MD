@@ -12,12 +12,14 @@
   //TODO 
 capture content from the box
 1. Fill the database
+- Put all the questions in
 
 2. Figure out how to get our questions to appear
 
 3. how to get chat input
 
 4. Get rid of the mouse problem
+- NPM RUN
 
 5. Smooth transitions between pages and capturing the data
 

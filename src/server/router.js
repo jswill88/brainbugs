@@ -17,7 +17,7 @@ async function handleQuestions(req, res) {
     console.log('after the save');
     res.status(200).send('success');
   }
-  catch (error) { 'error after the try in the save function', error };
+  catch (error) { 'error after the try in the save function', error; }
 }
 
 router.get('/test', async (req, res) => {
