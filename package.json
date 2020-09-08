@@ -24,10 +24,14 @@
   },
   "homepage": "https://github.com/this-dot-group/midterm-project#readme",
   "dependencies": {
+    "@code-fellows/supergoose": "^1.0.10",
     "blessed": "^0.1.81",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jest": "^26.4.0",
     "mongoose": "^5.10.3",
     "socket.io": "^2.3.0",
-    "socket.io-client": "^2.3.0"
+    "socket.io-client": "^2.3.0",
+    "supertest": "^4.0.2"
   }
 }
