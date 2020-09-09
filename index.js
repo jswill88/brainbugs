@@ -52,6 +52,13 @@ io.on('connection', (socket) => {
     io.emit('getCategoryQuestions', questionsAndAnswers);
   });
   socket.on('doneGettingCats', ()=> io.emit('loadPage'));
+
+  socket.on('chatting', chatPayload => {
+    console.log('chatting with friends!');
+    io.emit('chatting', chatPayload);
+  });
+
+
 });
 
 
