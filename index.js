@@ -44,6 +44,15 @@ io.on('connection', (socket) => {
 
   });
 
+  socket.on('chat-appender', (chatPayload) => {
+
+    //we're taking the payload from the chat input, we want to emit it
+  
+    console.log('CHAT PAYLOAD: ', chatPayload);
+    io.emit('chat-appender', chatPayload);
+  });
+
+
 });
 
 
