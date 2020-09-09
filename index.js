@@ -41,9 +41,15 @@ io.on('connection', (socket) => {
   // Listening for user to enter username and emitting it with an event
   socket.on('usernamePopulate', async (username) => {
     io.emit('usernamePopulate',username);
-
   });
-
+  socket.on('getCategoryQuestions', async category => {
+    let results = await thisIsTheSchema.find({topic: category});
+    io.emit('getCategoryQuestions', results);
+    // console.log(results);
+  });
+  socket.on('nextQuestion', questionsAndAnswers => {
+    io.emit('getCategoryQuestions', questionsAndAnswers);
+  });
 });
 
 
