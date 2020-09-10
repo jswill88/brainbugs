@@ -112,12 +112,23 @@ io.on('connection', (socket) => {
         io.emit('gameEnd');
       }
     }
-
-
     
   });
   
   socket.on('afterEndRender', () => io.emit('afterEndRender') );
+
+
+  // CHAT LISTENER
+
+  socket.on('chatting', chatPayload => {
+    console.log('chatting with friends!');
+    io.emit('chatting', chatPayload);
+  });
+
+
+
+
+
 });
 
 
