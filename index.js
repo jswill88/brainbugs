@@ -30,28 +30,42 @@ const io = socketIO(socketServer);
 
 const thisIsTheSchema = require('./lib/database/schema/question-schema');
 
+const userObject = {};
+
+
+
 io.on('connection', (socket) => {
   // console.log('socket', socket);
   socket.on('join', async room => {
     console.log('joined', room);
-
-    socket.join(room);
+    socket.join(socket.id);
+    console.log(socket.id);
+    userObject[socket.id] = {};
   });
   // Listening for user to enter username and emitting it with an event
   socket.on('usernamePopulate', async (username) => {
-    io.emit('usernamePopulate',username);
+    console.log(socket.id);
+    userObject[socket.id] = username;
+    io.to(socket.id).emit('usernamePopulate', username);
     let results = await thisIsTheSchema.find().distinct('topic');
-    io.emit('database', results); 
+    io.to(socket.id).emit('database', results);
+    // console.log(userObject);
   });
+  socket.on('doneGettingCats', () => io.to(socket.id).emit('loadPage'));
   socket.on('getCategoryQuestions', async category => {
     let results = await thisIsTheSchema.find({topic: category});
     io.emit('getCategoryQuestions', results);
     // console.log(results);
   });
   socket.on('nextQuestion', questionsAndAnswers => {
-    io.emit('getCategoryQuestions', questionsAndAnswers);
+    if(questionsAndAnswers.length > 0) {
+      io.emit('getCategoryQuestions', questionsAndAnswers);
+    } else {
+      io.emit('gameEnd');
+    }
   });
-  socket.on('doneGettingCats', ()=> io.emit('loadPage'));
+  
+  socket.on('afterEndRender', () => io.emit('afterEndRender') );
 });
 
 
