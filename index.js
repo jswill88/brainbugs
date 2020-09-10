@@ -116,7 +116,15 @@ io.on('connection', (socket) => {
     
   });
   
-  socket.on('afterEndRender', () => io.emit('afterEndRender') );
+  socket.on('afterEndRender', () => {
+    let winner = 'tie game';
+    if(userArr[0].score > userArr[1].score){
+      winner = userArr[0].username;
+    } else if (userArr[1].score > userArr[0].score) {
+      winner = userArr[1].username;
+    }
+    io.emit('afterEndRender', winner) ;
+  });
 
 
   // CHAT LISTENER
