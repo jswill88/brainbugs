@@ -30,7 +30,7 @@ const io = socketIO(socketServer);
 
 const thisIsTheSchema = require('./lib/database/schema/question-schema');
 
-const userArr = [];
+let userArr = [];
 
 const wrongAnsArr = [];
 
@@ -137,7 +137,9 @@ io.on('connection', (socket) => {
 
 
   socket.on('disconnect', () => {
-    userArr.filter(user => user.socketId !== socket.id);
+    userArr = userArr.filter(user => user.socketId !== socket.id);
+    console.log(`${socket.id} disconnected`);
+    console.log(userArr);
   });
 
 });
