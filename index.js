@@ -49,6 +49,8 @@ io.on('connection', (socket) => {
     console.log('in usernamePopulate:', socket.id);
     // userArr.[socket.id] = username;
     userArr.push({username: username, socketId: socket.id, score: 0});
+    console.log(username);
+    io.to(socket.id).emit('chatName', username);
 
 
     if(userArr.length === 2) {
@@ -57,7 +59,6 @@ io.on('connection', (socket) => {
       let usernameTwo = userArr[1].username;
 
       let usernameArr = [usernameOne, usernameTwo];
-
       io.emit('usernamePopulate', usernameArr);
 
       console.log('USERARR IN INDEX:', usernameArr);
@@ -127,7 +128,9 @@ io.on('connection', (socket) => {
 
 
 
-
+  socket.on('disconnect', () => {
+    userArr.filter(user => user.socketId !== socket.id);
+  }
 
 });
 
