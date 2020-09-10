@@ -32,6 +32,8 @@ const thisIsTheSchema = require('./lib/database/schema/question-schema');
 
 const userArr = [];
 
+const wrongAnsArr = [];
+
 // if there are 2 people in user obj, add both
 
 io.on('connection', (socket) => {
@@ -46,7 +48,7 @@ io.on('connection', (socket) => {
   socket.on('usernamePopulate', async (username) => {
     console.log('in usernamePopulate:', socket.id);
     // userArr.[socket.id] = username;
-    userArr.push({username: username, socketId: socket.id});
+    userArr.push({username: username, socketId: socket.id, score: 0});
 
 
     if(userArr.length === 2) {
@@ -76,11 +78,43 @@ io.on('connection', (socket) => {
     // console.log(results);
   });
   socket.on('nextQuestion', questionsAndAnswers => {
+
+    userArr.forEach(user => {
+
+      if(user.socketId === socket.id) {
+        user.score++;
+      }
+    });
+
+    io.emit('scoreIncrease', userArr);
+
     if(questionsAndAnswers.length > 0) {
       io.emit('getCategoryQuestions', questionsAndAnswers);
     } else {
       io.emit('gameEnd');
     }
+  });
+
+
+
+  socket.on('wrongAnsEvent', questionAndAnsPayload => {
+
+    wrongAnsArr.push(questionAndAnsPayload);
+
+    if(wrongAnsArr.length === 2){
+
+      wrongAnsArr.pop();
+      wrongAnsArr.pop();
+
+      if(questionAndAnsPayload.length > 0) {
+        io.emit('getCategoryQuestions', questionAndAnsPayload);
+      } else {
+        io.emit('gameEnd');
+      }
+    }
+
+
+    
   });
   
   socket.on('afterEndRender', () => io.emit('afterEndRender') );
