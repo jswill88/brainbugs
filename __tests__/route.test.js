@@ -20,9 +20,6 @@ it('can create() a new question', async () => {
     
   const response = await mockRequest.post('/question').send(testData);
   expect(response.status).toBe(200);
-
-  //not sure what else to check for here since we aren't sending a response. if we were we could do the compareProps thing (see api.server lab)
-  // at the moment we could spy on the console log in there, but i imagine we'll get rid of that eventually
     
 });
 
