@@ -49,6 +49,8 @@ io.on('connection', (socket) => {
     console.log('in usernamePopulate:', socket.id);
     // userArr.[socket.id] = username;
     userArr.push({username: username, socketId: socket.id, score: 0});
+    console.log(username);
+    io.to(socket.id).emit('chatName', username);
 
 
     if(userArr.length === 2) {
@@ -57,7 +59,6 @@ io.on('connection', (socket) => {
       let usernameTwo = userArr[1].username;
 
       let usernameArr = [usernameOne, usernameTwo];
-
       io.emit('usernamePopulate', usernameArr);
 
       console.log('USERARR IN INDEX:', usernameArr);
@@ -112,12 +113,33 @@ io.on('connection', (socket) => {
         io.emit('gameEnd');
       }
     }
-
-
     
   });
   
-  socket.on('afterEndRender', () => io.emit('afterEndRender') );
+  socket.on('afterEndRender', () => {
+    let winner = 'tie game';
+    if(userArr[0].score > userArr[1].score){
+      winner = userArr[0].username;
+    } else if (userArr[1].score > userArr[0].score) {
+      winner = userArr[1].username;
+    }
+    io.emit('afterEndRender', winner) ;
+  });
+
+
+  // CHAT LISTENER
+
+  socket.on('chatting', chatPayload => {
+    console.log('chatting with friends!');
+    io.emit('chatting', chatPayload);
+  });
+
+
+
+  socket.on('disconnect', () => {
+    userArr.filter(user => user.socketId !== socket.id);
+  });
+
 });
 
 
