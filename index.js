@@ -130,7 +130,7 @@ io.on('connection', (socket) => {
 
   socket.on('disconnect', () => {
     userArr.filter(user => user.socketId !== socket.id);
-  }
+  });
 
 });
 
