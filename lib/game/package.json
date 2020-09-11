@@ -5,13 +5,15 @@
   "main": "game-client.js",
   "start": "game-client.js && chat-client.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "blessed": "^0.1.81",
     "dotenv": "^8.2.0",
+    "jest": "^26.4.2",
     "socket.io-client": "^2.3.0"
   }
 }
