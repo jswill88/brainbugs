@@ -80,10 +80,6 @@ io.on('connection', (socket) => {
   });
   socket.on('nextQuestion', questionsAndAnswers => {
 
-    if (wrongAnsArr.length === 1){
-      wrongAnsArr.pop();
-    }
-
     userArr.forEach(user => {
 
       if(user.socketId === socket.id) {
