@@ -5,6 +5,14 @@ const supertest = require('supertest');
 const mockRequest = supertest(app);
 require('./supergoose.js');
 
+let spy;
+beforeEach(() => {
+  spy = jest.spyOn(console, 'log').mockImplementation();
+});
+afterEach(()=> {
+  spy.mockRestore();
+});
+
 const testData = { 
   topic: 'trees', 
   question: 'what tree is not found native in WA?', 
@@ -42,7 +50,7 @@ describe('500 Error Handling', () => {
       .get('/bad')
       .then(results => {
         expect(results.status).toBe(500);
-      }).catch(console.error);
+      }).catch(e => console.log('error caught'));
   });
   
 });
