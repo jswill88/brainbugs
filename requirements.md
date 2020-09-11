@@ -41,13 +41,13 @@
  - Display the score during the entire game play. 
 
 ***
-##Functional Requirements
+## Functional Requirements
  - List the functionality of your product. This will consist of tasks such as the following:
  - The user will be able to connect to another user and play trivia games vs each other. 
  - A user will be able to select between six* different trivia categories.
 
 ***
-##Data Flow
+## Data Flow
  - User connects to server by using “npm run”.
  - Command-line prompts a welcome message and asks for user input of name.
  - How to play and terminal shortcuts to be used are displayed.
