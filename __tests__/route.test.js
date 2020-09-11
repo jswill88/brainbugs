@@ -1,6 +1,6 @@
 'use strict';
 
-const {app} = require('../src/server/server.js');
+const { app } = require('../src/server/server.js');
 const supergoose = require('@code-fellows/supergoose');
 const questionModel = require('../lib/database/schema/question-schema.js');
 
