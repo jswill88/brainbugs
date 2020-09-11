@@ -39,9 +39,9 @@ In this `.env` file, enter:
 ```
 PORT=3000
 MONGODB_URI=mongodb+srv://jswill88:4eBmuoTobheD7THN@cluster0.5kskc.mongodb.net/questions?retryWrites=true&w=majority
+```
 
 #### Client Setup
-```
 Run the local server by entering this into the terminal:
 ```
 node .
