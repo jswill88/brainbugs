@@ -1,0 +1,37 @@
+{
+  "name": "midterm-project",
+  "version": "1.0.0",
+  "description": "## Authors - Chris Hamersly: [GitHub](https://github.com/christopherhamersly) - Daisy Johnson: [GitHub](https://github.com/daisyjanejohnson)  - Tia Low: [GitHub](https://github.com/TiaLow) - Joshua Williams: [GitHub](https://github.com/jswill88)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint **/*.js",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/this-dot-group/midterm-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/this-dot-group/midterm-project/issues"
+  },
+  "homepage": "https://github.com/this-dot-group/midterm-project#readme",
+  "dependencies": {
+    "@code-fellows/supergoose": "^1.0.10",
+    "blessed": "^0.1.81",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jest": "^26.4.2",
+    "mongoose": "^5.10.3",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
+    "supertest": "^4.0.2"
+  }
+}
