@@ -1,10 +1,9 @@
 'use strict';
 
-const {app} = require('../src/server/server.js');
+const { app } = require('../src/server/server.js');
 const supertest = require('supertest');
 const mockRequest = supertest(app);
 require('./supergoose.js');
-
 
 const testData = { 
   topic: 'trees', 
@@ -26,6 +25,7 @@ describe('404 Error Handling', () => {
       .then( results=> {
         expect(results.status).toBe(404);
       });
+
   });
 
   it('should respond with a 404 on an invalid method', async () => {
@@ -34,7 +34,6 @@ describe('404 Error Handling', () => {
   });
   
 });
-
 
 describe('500 Error Handling', () => {
   
@@ -58,4 +57,5 @@ describe('Sunny Day - 200 Handling', () => {
         expect(results.status).toBe(200);
       });
   });
+
 });
