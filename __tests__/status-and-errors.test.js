@@ -5,6 +5,14 @@ const supertest = require('supertest');
 const mockRequest = supertest(app);
 require('./supergoose.js');
 
+
+const testData = { 
+  topic: 'trees', 
+  question: 'what tree is not found native in WA?', 
+  answers: [{answer: 'noble fir' , correct: false}, {answer: 'palm tree', correct: true}, {answer: 'western hemlock', correct: false}, {answer: 'red alder', correct: false}], 
+  description:'this is a pencil' ,
+};
+
 describe('404 Error Handling', () => {
 
   it('should response with 404 on invalid route', async () => {
@@ -30,12 +38,12 @@ describe('404 Error Handling', () => {
 
 describe('500 Error Handling', () => {
   
-  it('should respond with a 500 on a server error', async () => {
-
-    // passes but its the same test basically as 404? 
-    const results = await mockRequest.get('/badRoute');
-    expect(results.status).toBe(500);
-
+  it('should respond with a 500 on an error', () => {
+    return mockRequest
+      .get('/bad')
+      .then(results => {
+        expect(results.status).toBe(500);
+      }).catch(console.error);
   });
   
 });
@@ -43,11 +51,6 @@ describe('500 Error Handling', () => {
 describe('Sunny Day - 200 Handling', () => {
   
   it('should respond with 200 on proper POST request to /question', () => {
-    const testData = { 
-      topic: 'trees', 
-      question: 'what tree is not found native in WA?', 
-      answers: [{answer: 'noble fir' , correct: false}, {answer: 'palm tree', correct: true}, {answer: 'western hemlock', correct: false}, {answer: 'red alder', correct: false}], 
-      description:'this is a pencil' };
 
     return mockRequest
       .post('/question').send(testData)
