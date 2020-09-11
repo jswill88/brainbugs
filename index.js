@@ -85,8 +85,6 @@ io.on('connection', (socket) => {
 
   });
 
-
-
   socket.on('wrongAnsEvent', questionAndAnsPayload => {
 
     wrongAnsArr.push(questionAndAnsPayload);
