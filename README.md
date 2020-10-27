@@ -1,9 +1,6 @@
 # Brain Bugs
 ## Created by this.group
 
-## We are Deployed On
-https://brain-bugs.herokuapp.com/
-
 ## Web Application
 This application consists of a backend written with JavaScript utilizing Node.js. It also incorporates the Express and Blessed libraries and the Socket.io client.
 
