@@ -22,7 +22,7 @@ This is a command line multi-player trivia game. Players will have the opportuni
 ## Getting Started
 Clone this repository to your local machine.
 
-``` git clone https://github.com/this-dot-group/midterm-project.git```
+``` git clone https://github.com/jswill88/brainbugs.git```
 
 #### Server Setup - optional
 
